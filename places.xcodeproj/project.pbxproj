@@ -97,11 +97,10 @@
 		ABEBC2721FD50CCC00300944 /* places */ = {
 			isa = PBXGroup;
 			children = (
-				ABEBC2731FD50CCC00300944 /* AppDelegate.swift */,
-				ABEBC2751FD50CCC00300944 /* ViewController.swift */,
-				ABEBC2771FD50CCC00300944 /* Main.storyboard */,
+				ABEBC2A31FD50D2D00300944 /* Controller */,
+				ABEBC2A21FD50D2500300944 /* View */,
+				ABEBC2A11FD50D1D00300944 /* Model */,
 				ABEBC27A1FD50CCC00300944 /* Assets.xcassets */,
-				ABEBC27C1FD50CCC00300944 /* LaunchScreen.storyboard */,
 				ABEBC27F1FD50CCC00300944 /* Info.plist */,
 			);
 			path = places;
@@ -123,6 +122,31 @@
 				ABEBC2951FD50CCC00300944 /* Info.plist */,
 			);
 			path = placesUITests;
+			sourceTree = "<group>";
+		};
+		ABEBC2A11FD50D1D00300944 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABEBC2A21FD50D2500300944 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBC27C1FD50CCC00300944 /* LaunchScreen.storyboard */,
+				ABEBC2771FD50CCC00300944 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABEBC2A31FD50D2D00300944 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBC2731FD50CCC00300944 /* AppDelegate.swift */,
+				ABEBC2751FD50CCC00300944 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +456,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = your.domain.places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -446,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = your.domain.places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
