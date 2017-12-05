@@ -10,7 +10,6 @@ target 'places' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
-    pod 'SVProgressHUD'
 
   target 'placesTests' do
     inherit! :search_paths

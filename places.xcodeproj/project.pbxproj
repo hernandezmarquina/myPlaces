@@ -19,6 +19,10 @@
 		ABEBC2A71FD5ECE900300944 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2A61FD5ECE900300944 /* MapController.swift */; };
 		ABEBC2A91FD6728100300944 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2A81FD6728100300944 /* OutlineButton.swift */; };
 		ABEBC2AB1FD7092500300944 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABEBC2AA1FD7092500300944 /* GoogleService-Info.plist */; };
+		ABEBC2AD1FD710B600300944 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2AC1FD710B600300944 /* SignUpController.swift */; };
+		ABEBC2AF1FD724DF00300944 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2AE1FD724DF00300944 /* User.swift */; };
+		ABEBC2B51FD7306F00300944 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2B31FD7306F00300944 /* ProgressHUD.m */; };
+		ABEBC2B61FD7306F00300944 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ABEBC2B41FD7306F00300944 /* ProgressHUD.bundle */; };
 		DB6CEE00AF6186CE64E3C5FA /* Pods_placesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A7D566BFB15CD64C76F78D /* Pods_placesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,12 @@
 		ABEBC2A61FD5ECE900300944 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		ABEBC2A81FD6728100300944 /* OutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineButton.swift; sourceTree = "<group>"; };
 		ABEBC2AA1FD7092500300944 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABEBC2AC1FD710B600300944 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		ABEBC2AE1FD724DF00300944 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ABEBC2B11FD7306E00300944 /* places-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "places-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABEBC2B21FD7306E00300944 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		ABEBC2B31FD7306F00300944 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		ABEBC2B41FD7306F00300944 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		EA33BBD9C2EE758BC0520769 /* Pods-places.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-places.release.xcconfig"; path = "Pods/Target Support Files/Pods-places/Pods-places.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +156,7 @@
 				ABEBC2A31FD50D2D00300944 /* Controller */,
 				ABEBC2A21FD50D2500300944 /* View */,
 				ABEBC2A11FD50D1D00300944 /* Model */,
+				ABEBC2B01FD7303200300944 /* Supporting Files */,
 				ABEBC27A1FD50CCC00300944 /* Assets.xcassets */,
 				ABEBC27F1FD50CCC00300944 /* Info.plist */,
 				ABEBC2AA1FD7092500300944 /* GoogleService-Info.plist */,
@@ -174,6 +185,7 @@
 		ABEBC2A11FD50D1D00300944 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ABEBC2AE1FD724DF00300944 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,8 +206,20 @@
 				ABEBC2731FD50CCC00300944 /* AppDelegate.swift */,
 				ABEBC2751FD50CCC00300944 /* LoginController.swift */,
 				ABEBC2A61FD5ECE900300944 /* MapController.swift */,
+				ABEBC2AC1FD710B600300944 /* SignUpController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABEBC2B01FD7303200300944 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBC2B41FD7306F00300944 /* ProgressHUD.bundle */,
+				ABEBC2B21FD7306E00300944 /* ProgressHUD.h */,
+				ABEBC2B31FD7306F00300944 /* ProgressHUD.m */,
+				ABEBC2B11FD7306E00300944 /* places-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +299,7 @@
 				TargetAttributes = {
 					ABEBC26F1FD50CCB00300944 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					ABEBC2831FD50CCC00300944 = {
@@ -317,6 +342,7 @@
 				ABEBC27E1FD50CCC00300944 /* LaunchScreen.storyboard in Resources */,
 				ABEBC2AB1FD7092500300944 /* GoogleService-Info.plist in Resources */,
 				ABEBC27B1FD50CCC00300944 /* Assets.xcassets in Resources */,
+				ABEBC2B61FD7306F00300944 /* ProgressHUD.bundle in Resources */,
 				ABEBC2791FD50CCC00300944 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,7 +406,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-places/Pods-places-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -388,7 +413,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -500,7 +524,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEBC2AD1FD710B600300944 /* SignUpController.swift in Sources */,
 				ABEBC2761FD50CCC00300944 /* LoginController.swift in Sources */,
+				ABEBC2AF1FD724DF00300944 /* User.swift in Sources */,
+				ABEBC2B51FD7306F00300944 /* ProgressHUD.m in Sources */,
 				ABEBC2A71FD5ECE900300944 /* MapController.swift in Sources */,
 				ABEBC2A91FD6728100300944 /* OutlineButton.swift in Sources */,
 				ABEBC2741FD50CCC00300944 /* AppDelegate.swift in Sources */,
@@ -670,11 +697,14 @@
 			baseConfigurationReference = 5B4C42305869E616B8C8048B /* Pods-places.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = your.domain.places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "places/Supporting Files/places-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -685,11 +715,13 @@
 			baseConfigurationReference = EA33BBD9C2EE758BC0520769 /* Pods-places.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = your.domain.places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "places/Supporting Files/places-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
