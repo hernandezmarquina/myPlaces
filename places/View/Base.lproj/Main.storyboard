@@ -87,6 +87,9 @@
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="LoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdm-R4-FF0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -139,14 +142,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="U4T-cM-hSn"/>
                     <connections>
                         <outlet property="emailTextFiel" destination="3mG-R4-0RT" id="Yal-yA-OQz"/>
                         <outlet property="passwordTextField" destination="Sg2-70-tf0" id="f9M-rD-nUg"/>
+                        <segue destination="FBf-M0-WMQ" kind="show" identifier="goToMapView" id="Um7-fF-Xoq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.199999999999999" y="31.934032983508249"/>
+            <point key="canvasLocation" x="370.39999999999998" y="31.934032983508249"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="iYg-NN-f21">
@@ -234,6 +239,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="FBf-M0-WMQ" eventType="touchUpInside" id="eTi-3z-2Gk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -263,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SrY-1h-CdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="719.19040479760122"/>
+            <point key="canvasLocation" x="370" y="805"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="730-fS-6ex">
@@ -360,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLR-0L-dsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730.39999999999998" y="31.03448275862069"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="31.03448275862069"/>
         </scene>
     </scenes>
     <resources>

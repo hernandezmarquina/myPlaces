@@ -31,7 +31,7 @@ class SignUpController: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         
         if (emailTextField.text?.isEmpty)! {
-            ProgressHUD.showError("email Required")
+            ProgressHUD.showError("Email Required")
         } else {
             if !isThePasswordValid() {
                 

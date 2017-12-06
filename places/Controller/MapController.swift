@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 import MapKit
+import Firebase
+
 
 class MapController : UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    
+
     let userLocation : CLLocation = CLLocation(latitude:37.758431, longitude: -122.445162)
     let regionRadius: CLLocationDistance = 1000
     
@@ -21,6 +23,17 @@ class MapController : UIViewController {
          centerMapOnLocation(location: userLocation)
     }
     
+    @IBAction func logOutButtonPressed(_ sender: UIButton) {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("SignOut error")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
