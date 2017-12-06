@@ -37,7 +37,7 @@
                                         <rect key="frame" x="117.5" y="100" width="140" height="134"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Places" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU0-p9-cVw" userLabel="Place Name">
-                                                <rect key="frame" x="0.0" y="82" width="140" height="52"/>
+                                                <rect key="frame" x="1" y="82" width="139" height="59"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -246,21 +246,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="bottom" secondItem="Kl4-1u-ywd" secondAttribute="bottom" id="5Q2-0V-HmD"/>
+                            <constraint firstItem="xA8-XE-nSg" firstAttribute="leading" secondItem="Kl4-1u-ywd" secondAttribute="leading" id="4Xf-tF-HFf"/>
                             <constraint firstItem="Kl4-1u-ywd" firstAttribute="bottom" secondItem="oEe-8o-h1L" secondAttribute="bottom" constant="20" id="5va-WC-edK"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="top" secondItem="j6y-Ic-7YL" secondAttribute="top" id="7IP-Lb-uFh"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="leading" secondItem="Kl4-1u-ywd" secondAttribute="leading" id="84b-ay-rpc"/>
                             <constraint firstItem="Kl4-1u-ywd" firstAttribute="bottom" secondItem="PHc-yz-OZo" secondAttribute="bottom" constant="20" id="8bT-nD-z7z"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="top" secondItem="j6y-Ic-7YL" secondAttribute="top" id="DGn-f6-JGi"/>
+                            <constraint firstItem="xA8-XE-nSg" firstAttribute="top" secondItem="j6y-Ic-7YL" secondAttribute="top" id="DQW-dR-xvi"/>
                             <constraint firstItem="6ur-Ln-YdG" firstAttribute="centerY" secondItem="j6y-Ic-7YL" secondAttribute="centerY" id="Qrw-6d-H8v"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="trailing" secondItem="Kl4-1u-ywd" secondAttribute="trailing" id="Tjc-5q-iaB"/>
+                            <constraint firstItem="xA8-XE-nSg" firstAttribute="bottom" secondItem="Kl4-1u-ywd" secondAttribute="bottom" id="SRm-d1-bMx"/>
                             <constraint firstItem="Kl4-1u-ywd" firstAttribute="bottom" secondItem="MK0-CD-bbf" secondAttribute="bottom" constant="20" id="Y8L-Qd-Hfk"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="bottom" secondItem="Kl4-1u-ywd" secondAttribute="bottom" id="YLw-fZ-qO0"/>
                             <constraint firstItem="Kl4-1u-ywd" firstAttribute="trailing" secondItem="oEe-8o-h1L" secondAttribute="trailing" constant="16" id="fX6-nm-kFE"/>
                             <constraint firstItem="6ur-Ln-YdG" firstAttribute="centerX" secondItem="j6y-Ic-7YL" secondAttribute="centerX" id="gvC-bw-4YC"/>
+                            <constraint firstItem="xA8-XE-nSg" firstAttribute="trailing" secondItem="Kl4-1u-ywd" secondAttribute="trailing" id="j5G-j4-WnS"/>
                             <constraint firstItem="MK0-CD-bbf" firstAttribute="centerX" secondItem="j6y-Ic-7YL" secondAttribute="centerX" id="s7W-ap-rrD"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="leading" secondItem="Kl4-1u-ywd" secondAttribute="leading" id="w9O-V4-NpI"/>
-                            <constraint firstItem="xA8-XE-nSg" firstAttribute="trailing" secondItem="Kl4-1u-ywd" secondAttribute="trailing" id="xcZ-JO-3D4"/>
                             <constraint firstItem="PHc-yz-OZo" firstAttribute="leading" secondItem="Kl4-1u-ywd" secondAttribute="leading" constant="16" id="yic-kK-1iT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kl4-1u-ywd"/>
@@ -375,7 +371,7 @@
         <image name="Confirm Password" width="16" height="16"/>
         <image name="icon" width="76" height="76"/>
         <image name="login-background" width="1920" height="3591"/>
-        <image name="pin-circle-icon" width="600" height="600"/>
+        <image name="pin-circle-icon" width="24" height="24"/>
         <image name="sign-up-background" width="1072" height="1890"/>
     </resources>
 </document>
