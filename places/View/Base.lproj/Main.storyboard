@@ -186,6 +186,9 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addPlaceButtonPressed:" destination="FBf-M0-WMQ" eventType="touchUpInside" id="G3Y-W0-yBB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-circle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6ur-Ln-YdG">
                                 <rect key="frame" x="181.5" y="327.5" width="12" height="12"/>

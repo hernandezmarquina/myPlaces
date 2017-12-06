@@ -19,6 +19,8 @@ class MapController : UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     
+    var user : String?
+    
     let userLocation : CLLocation = CLLocation(latitude:37.758431, longitude: -122.445162)
     let regionRadius: CLLocationDistance = 1000
     
@@ -29,6 +31,31 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        user = Auth.auth().currentUser?.uid
+        
+        retrievePlaces()
+    }
+    
+    func retrievePlaces() {
+        let dbReferene = Database.database().reference().child("places").child(user!)
+        
+        dbReferene.observe(.childAdded) { (snapshot) in
+            
+            let snapshotValue = snapshot.value as! Dictionary<String, Any>
+            
+            let name = snapshotValue["name"] as! String
+            let lat = snapshotValue["latitude"] as! Double
+            let lng = snapshotValue["longitude"] as! Double
+            
+            let anotation = MKPointAnnotation()
+            
+            anotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            anotation.title = name
+            
+            self.mapView.addAnnotation(anotation)
+            
+        }
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
@@ -55,6 +82,51 @@ class MapController : UIViewController, CLLocationManagerDelegate {
             
             centerMapOnLocation(location: userLocation)
             
+        }
+    }
+    
+    
+    @IBAction func addPlaceButtonPressed(_ sender: UIButton) {
+        createPlace()
+    }
+    
+    func createPlace() {
+        
+        let center = mapView.centerCoordinate
+        
+        let alert = UIAlertController(title: "New Place", message: "Enter a Place name", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+        }
+
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+            
+            let name : String = (alert?.textFields![0].text)!
+            
+            let place : [String : Any] = ["name": name, "latitude": center.latitude, "longitude": center.longitude]
+            
+            self.savePlace(place)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func savePlace(_ place: [String: Any]){
+        
+        let placesDB = Database.database().reference().child("places").child(user!)
+        
+        placesDB.childByAutoId().setValue(place) { (error, reference) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("Place saved successfully!")
+                ProgressHUD.showSuccess("Saved")
+            }
         }
     }
     

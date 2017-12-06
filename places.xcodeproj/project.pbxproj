@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		129E2CE191CAE97C33C6AC41 /* Pods_places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECDE2D37FCFFDE16AA5716D /* Pods_places.framework */; };
 		8B24B9F4F2B255587D536C16 /* Pods_placesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492DDD9955F6C91C002D1E8A /* Pods_placesTests.framework */; };
+		AB7A54101FD7A9D300F21E04 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A540F1FD7A9D300F21E04 /* Place.swift */; };
 		ABEBC2741FD50CCC00300944 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2731FD50CCC00300944 /* AppDelegate.swift */; };
 		ABEBC2761FD50CCC00300944 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2751FD50CCC00300944 /* LoginController.swift */; };
 		ABEBC2791FD50CCC00300944 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBC2771FD50CCC00300944 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		9A611F05DCAD014A5104DAC2 /* Pods-placesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-placesTests/Pods-placesTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AD31884AB6653E454EF4F11 /* Pods-placesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-placesUITests/Pods-placesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9ECDE2D37FCFFDE16AA5716D /* Pods_places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB7A540F1FD7A9D300F21E04 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		ABEBC2701FD50CCC00300944 /* places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBC2731FD50CCC00300944 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABEBC2751FD50CCC00300944 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				ABEBC2AE1FD724DF00300944 /* User.swift */,
+				AB7A540F1FD7A9D300F21E04 /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				ABEBC2AD1FD710B600300944 /* SignUpController.swift in Sources */,
 				ABEBC2761FD50CCC00300944 /* LoginController.swift in Sources */,
 				ABEBC2AF1FD724DF00300944 /* User.swift in Sources */,
+				AB7A54101FD7A9D300F21E04 /* Place.swift in Sources */,
 				ABEBC2B51FD7306F00300944 /* ProgressHUD.m in Sources */,
 				ABEBC2A71FD5ECE900300944 /* MapController.swift in Sources */,
 				ABEBC2A91FD6728100300944 /* OutlineButton.swift in Sources */,
