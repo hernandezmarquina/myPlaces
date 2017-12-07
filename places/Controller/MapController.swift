@@ -136,9 +136,11 @@ class MapController : UIViewController, CLLocationManagerDelegate, PlaceListDele
     }
     
     /**
+     
          Save Place in Firebase
      
      - parameter place: Data in the correct format for save.
+     
      */
     private func savePlace(_ place: [String: Any]){
         
@@ -159,9 +161,11 @@ class MapController : UIViewController, CLLocationManagerDelegate, PlaceListDele
     }
     
     /**
+     
          Change the current map center to a specific location
      
      - parameter location: location to center
+     
      */
     private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
@@ -183,5 +187,23 @@ class MapController : UIViewController, CLLocationManagerDelegate, PlaceListDele
         let location : CLLocation = CLLocation(latitude: place.latitude, longitude: place.longitude)
             
         centerMapOnLocation(location: location)
+        openAnnotationDescription(place: place)
+    }
+    
+    /**
+     
+         Display the annotation title on PlaceCell click
+     
+     - parameter place: Place selected
+     
+     */
+    private func openAnnotationDescription(place: Place){
+        for annotation in mapView.annotations as [MKAnnotation] {
+
+            if annotation.title!! == place.name {
+                mapView.selectAnnotation(annotation, animated: true)
+                break
+            }
+        }
     }
 }

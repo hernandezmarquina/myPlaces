@@ -104,6 +104,9 @@ class PlaceListController: UIViewController, UITableViewDataSource, UITableViewD
         
         delegate?.placeCellSelected(place: placeSelected)
         
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         guard (navigationController?.popToRootViewController(animated: true)) != nil
             else{
                 print("No View Controllers to pop off")
