@@ -9,11 +9,20 @@
 import Foundation
 import Firebase
 
+protocol PlaceListDelegate {
+    func placeCellSelected(place: Place)
+}
+
 class PlaceListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /// Object list to display in the TableView
     var places: [Place] = [Place]()
+    
+    /// User id from **Firebase**
     var user: String?
+    
+    /// The object that acts as the delegate of the PlaceList
+    var delegate : PlaceListDelegate?
     
     @IBOutlet weak var placesTableView: UITableView!
     @IBOutlet weak var placesCountLabel: UILabel!
@@ -85,6 +94,21 @@ class PlaceListController: UIViewController, UITableViewDataSource, UITableViewD
         cell.placeName.text = places[indexPath.row].name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("Row selected: ", indexPath.row)
+        
+        let placeSelected : Place = places[indexPath.row]
+        
+        delegate?.placeCellSelected(place: placeSelected)
+        
+        guard (navigationController?.popToRootViewController(animated: true)) != nil
+            else{
+                print("No View Controllers to pop off")
+                return
+        }
     }
     
     

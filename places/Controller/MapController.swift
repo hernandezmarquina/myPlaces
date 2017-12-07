@@ -13,19 +13,23 @@ import Firebase
 import CoreLocation
 
 
-class MapController : UIViewController, CLLocationManagerDelegate {
+class MapController : UIViewController, CLLocationManagerDelegate, PlaceListDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
     
+    /// User id from **Firebase**.
     var user : String?
     
+    /// Default **CLLocation** value to init the Map.
     let userLocation : CLLocation = CLLocation(latitude:37.758431, longitude: -122.445162)
+    /// Default **CLLocationDistance** value to init the Map.
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
-         centerMapOnLocation(location: userLocation)
+        
+        centerMapOnLocation(location: userLocation)
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -37,10 +41,9 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         retrievePlaces()
     }
     
-    private func setupNavigationBarItems(){
-        //navigationItem.titleView
-    }
-    
+    /**
+         Read data at a path **\(places/user\)** and listen for changes.
+     */
     private func retrievePlaces() {
         let dbReferene = Database.database().reference().child("places").child(user!)
         
@@ -59,6 +62,9 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    /**
+         Adds a specified annotation to the map view.
+     */
     private func addAnnotation(place: Place) {
         let anotation = MKPointAnnotation()
         
@@ -100,6 +106,9 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         createPlace()
     }
     
+    /**
+         Start bulding a Place obj
+     */
     private func createPlace() {
         
         let center = mapView.centerCoordinate
@@ -126,6 +135,11 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         
     }
     
+    /**
+         Save Place in Firebase
+     
+     - parameter place: Data in the correct format for save.
+     */
     private func savePlace(_ place: [String: Any]){
         
         let placesDB = Database.database().reference().child("places").child(user!)
@@ -144,8 +158,30 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
+    /**
+         Change the current map center to a specific location
+     
+     - parameter location: location to center
+     */
     private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToListView" {
+            
+            let destination = segue.destination as! PlaceListController
+            
+            destination.delegate = self
+        }
+    }
+    
+    func placeCellSelected(place: Place) {
+        
+        let location : CLLocation = CLLocation(latitude: place.latitude, longitude: place.longitude)
+            
+        centerMapOnLocation(location: location)
     }
 }
