@@ -37,7 +37,11 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         retrievePlaces()
     }
     
-    func retrievePlaces() {
+    private func setupNavigationBarItems(){
+        //navigationItem.titleView
+    }
+    
+    private func retrievePlaces() {
         let dbReferene = Database.database().reference().child("places").child(user!)
         
         dbReferene.observe(.childAdded) { (snapshot) in
@@ -45,20 +49,27 @@ class MapController : UIViewController, CLLocationManagerDelegate {
             let snapshotValue = snapshot.value as! Dictionary<String, Any>
             
             let name = snapshotValue["name"] as! String
-            let lat = snapshotValue["latitude"] as! Double
-            let lng = snapshotValue["longitude"] as! Double
+            let latitude = snapshotValue["latitude"] as! Double
+            let longitude = snapshotValue["longitude"] as! Double
             
-            let anotation = MKPointAnnotation()
+            let newPlace : Place = Place(placeName: name, lat: latitude, lng: longitude)
             
-            anotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-            anotation.title = name
-            
-            self.mapView.addAnnotation(anotation)
+            self.addAnnotation(place: newPlace)
             
         }
     }
     
-    @IBAction func logOutButtonPressed(_ sender: UIButton) {
+    private func addAnnotation(place: Place) {
+        let anotation = MKPointAnnotation()
+        
+        anotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+        anotation.title = place.name
+        
+        self.mapView.addAnnotation(anotation)
+    }
+    
+
+    @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
         
         do {
             try Auth.auth().signOut()
@@ -67,7 +78,6 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         }
         
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -90,11 +100,11 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         createPlace()
     }
     
-    func createPlace() {
+    private func createPlace() {
         
         let center = mapView.centerCoordinate
         
-        let alert = UIAlertController(title: "New Place", message: "Enter a Place name", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Place", message: "", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = "Name"
@@ -116,7 +126,7 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func savePlace(_ place: [String: Any]){
+    private func savePlace(_ place: [String: Any]){
         
         let placesDB = Database.database().reference().child("places").child(user!)
         
@@ -134,7 +144,7 @@ class MapController : UIViewController, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
-    func centerMapOnLocation(location: CLLocation) {
+    private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }

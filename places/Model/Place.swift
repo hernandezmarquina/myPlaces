@@ -10,15 +10,15 @@ import Foundation
 
 class Place {
     
-    var name : [String : String]
-    var latitude: [String: Double]
-    var longitude: [String : Double]
+    var name : String
+    var latitude: Double
+    var longitude: Double
     
     init(placeName: String, lat: Double, lng: Double) {
         
-        name = ["name": placeName]
-        latitude = ["latitude": lat]
-        longitude = ["longitude": lng]
-        
+        name = placeName
+        latitude = lat
+        longitude = lng
+
     }
 }

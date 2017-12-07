@@ -10,6 +10,9 @@
 		129E2CE191CAE97C33C6AC41 /* Pods_places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECDE2D37FCFFDE16AA5716D /* Pods_places.framework */; };
 		8B24B9F4F2B255587D536C16 /* Pods_placesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492DDD9955F6C91C002D1E8A /* Pods_placesTests.framework */; };
 		AB7A54101FD7A9D300F21E04 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A540F1FD7A9D300F21E04 /* Place.swift */; };
+		AB7A54121FD923C900F21E04 /* PlaceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A54111FD923C900F21E04 /* PlaceListController.swift */; };
+		AB7A54161FD92CC300F21E04 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A54141FD92CC300F21E04 /* PlaceCell.swift */; };
+		AB7A54171FD92CC300F21E04 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7A54151FD92CC300F21E04 /* PlaceCell.xib */; };
 		ABEBC2741FD50CCC00300944 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2731FD50CCC00300944 /* AppDelegate.swift */; };
 		ABEBC2761FD50CCC00300944 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBC2751FD50CCC00300944 /* LoginController.swift */; };
 		ABEBC2791FD50CCC00300944 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBC2771FD50CCC00300944 /* Main.storyboard */; };
@@ -54,6 +57,9 @@
 		9AD31884AB6653E454EF4F11 /* Pods-placesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-placesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-placesUITests/Pods-placesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9ECDE2D37FCFFDE16AA5716D /* Pods_places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7A540F1FD7A9D300F21E04 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		AB7A54111FD923C900F21E04 /* PlaceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListController.swift; sourceTree = "<group>"; };
+		AB7A54141FD92CC300F21E04 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		AB7A54151FD92CC300F21E04 /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		ABEBC2701FD50CCC00300944 /* places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBC2731FD50CCC00300944 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABEBC2751FD50CCC00300944 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -130,6 +136,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB7A54131FD92C7900F21E04 /* Place Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AB7A54141FD92CC300F21E04 /* PlaceCell.swift */,
+				AB7A54151FD92CC300F21E04 /* PlaceCell.xib */,
+			);
+			path = "Place Cell";
+			sourceTree = "<group>";
+		};
 		ABEBC2671FD50CCB00300944 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +211,7 @@
 		ABEBC2A21FD50D2500300944 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB7A54131FD92C7900F21E04 /* Place Cell */,
 				ABEBC27C1FD50CCC00300944 /* LaunchScreen.storyboard */,
 				ABEBC2771FD50CCC00300944 /* Main.storyboard */,
 				ABEBC2A81FD6728100300944 /* OutlineButton.swift */,
@@ -210,6 +226,7 @@
 				ABEBC2751FD50CCC00300944 /* LoginController.swift */,
 				ABEBC2A61FD5ECE900300944 /* MapController.swift */,
 				ABEBC2AC1FD710B600300944 /* SignUpController.swift */,
+				AB7A54111FD923C900F21E04 /* PlaceListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +362,7 @@
 				ABEBC27E1FD50CCC00300944 /* LaunchScreen.storyboard in Resources */,
 				ABEBC2AB1FD7092500300944 /* GoogleService-Info.plist in Resources */,
 				ABEBC27B1FD50CCC00300944 /* Assets.xcassets in Resources */,
+				AB7A54171FD92CC300F21E04 /* PlaceCell.xib in Resources */,
 				ABEBC2B61FD7306F00300944 /* ProgressHUD.bundle in Resources */,
 				ABEBC2791FD50CCC00300944 /* Main.storyboard in Resources */,
 			);
@@ -528,10 +546,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEBC2AD1FD710B600300944 /* SignUpController.swift in Sources */,
+				AB7A54161FD92CC300F21E04 /* PlaceCell.swift in Sources */,
 				ABEBC2761FD50CCC00300944 /* LoginController.swift in Sources */,
 				ABEBC2AF1FD724DF00300944 /* User.swift in Sources */,
 				AB7A54101FD7A9D300F21E04 /* Place.swift in Sources */,
 				ABEBC2B51FD7306F00300944 /* ProgressHUD.m in Sources */,
+				AB7A54121FD923C900F21E04 /* PlaceListController.swift in Sources */,
 				ABEBC2A71FD5ECE900300944 /* MapController.swift in Sources */,
 				ABEBC2A91FD6728100300944 /* OutlineButton.swift in Sources */,
 				ABEBC2741FD50CCC00300944 /* AppDelegate.swift in Sources */,
