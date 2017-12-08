@@ -15,9 +15,58 @@ class LoginController: UIViewController, SignUpDelegate {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    /// Indicate if the keyboard is visible on the screen
+    private var isKeyboardVisible: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        registerNotificationObservers()
+    }
+    
+    /**
+         Calls this function when the tap is recognized.
+     */
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func registerNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        print("keyboardWillShow")
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if !isKeyboardVisible {
+                if self.view.frame.origin.y == 0{
+                    self.view.frame.origin.y -= keyboardSize.height
+                    isKeyboardVisible = true
+                }
+            }
+        }
+    }
+    
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        print("keyboardWillHide")
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+                isKeyboardVisible = false
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
