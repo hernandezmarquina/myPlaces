@@ -15,9 +15,43 @@ class LoginController: UIViewController, SignUpDelegate {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    /// Indicate if the keyboard is visible on the screen
+    private var isKeyboardVisible: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        registerNotificationObservers()
+    }
+    
+    func registerNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        print("keyboardWillShow")
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if !isKeyboardVisible {
+                if self.view.frame.origin.y == 0{
+                    self.view.frame.origin.y -= keyboardSize.height
+                    isKeyboardVisible = true
+                }
+            }
+        }
+    }
+    
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        print("keyboardWillHide")
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+                isKeyboardVisible = false
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
